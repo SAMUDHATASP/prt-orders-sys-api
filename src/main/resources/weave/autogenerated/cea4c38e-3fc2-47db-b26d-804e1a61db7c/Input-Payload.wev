@@ -1,0 +1,10 @@
+%dw 2.0
+
+type auto_cea4c38e_3fc2_47db_b26d_804e1a61db7c_Input_Payload = {
+  quantity: Number, 
+  productID?: String, 
+  priceperunit: Number, 
+  productName: String, 
+  _?: Any
+}
+
