@@ -1,0 +1,34 @@
+#%RAML 1.0
+title: prt-orders-sys-api
+
+traits:
+  client_id_secret_trait: !include traits/client_id_secret_trait.raml
+
+types:
+  orders_request_datatype: !include datatypes/orders_request_datatype.raml
+
+/orders:
+  post:
+    is: client_id_secret_trait
+    body:
+      application/json:
+        type: orders_request_datatype
+        examples:
+          output: !include examples/orders_request_example.raml
+    responses:
+      201:
+        body:
+          application/json:
+            type: object
+            example: {
+              message: Order created successfully!
+            }
+      500:
+        body:
+          application/json:
+            type: object
+            example: {
+              message: Order cannot be created!
+            }
+              
+
